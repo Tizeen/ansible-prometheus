@@ -1,0 +1,22 @@
+[Unit]
+Description=Grafana instance
+Documentation=http://docs.grafana.org
+Wants=network-online.target
+After=network-online.target
+After=postgresql.service mariadb.service mysql.service
+
+[Service]
+Type=notify
+Restart=on-failure
+WorkingDirectory=/opt/grafana-{{ version }}
+RuntimeDirectory=grafana
+RuntimeDirectoryMode=0750
+ExecStart=/opt/grafana-{{ version }}/bin/grafana-server                                 \
+                            --config=/opt/grafana-{{ version }}/conf/defaults.ini   \
+
+
+LimitNOFILE=10000
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

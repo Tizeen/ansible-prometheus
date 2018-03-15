@@ -1,0 +1,3 @@
+version: 0.15.2
+download_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ version }}/node_exporter-{{ version }}.linux-amd64.tar.gz"
+install_dir: "/opt"

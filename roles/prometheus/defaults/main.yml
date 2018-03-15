@@ -1,0 +1,2 @@
+version: 2.2.0
+download_url: "https://github.com/prometheus/prometheus/releases/download/v{{ version }}/prometheus-{{ version }}.linux-amd64.tar.gz"

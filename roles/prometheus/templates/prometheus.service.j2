@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Monitoring service
+After=network.target auditd.service
+
+[Service]
+ExecStart=/opt/prometheus-{{ version }}.linux-amd64/prometheus --config.file=/opt/prometheus-{{ version }}.linux-amd64/prometheus.yml
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

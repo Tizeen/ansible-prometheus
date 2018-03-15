@@ -1,0 +1,26 @@
+---
+
+- name: Download grafana
+  get_url:
+    url: "{{ download_url }}"
+    dest: /tmp/grafana-{{ version }}.linux-x64.tar.gz
+
+- name: Unarchive grafana
+  unarchive:
+    src: /tmp/grafana-{{ version }}.linux-x64.tar.gz
+    dest: /opt
+    remote_src: yes
+
+- name: Create grafana systemd service
+  template:
+    src: grafana-server.service.j2
+    dest: /etc/systemd/system/grafana-server.service
+  notify:
+    - reload systemd
+
+- name: Ensure grafana started and enabled
+  systemd:
+    name: grafana-server
+    state: started
+    enabled: yes
+    daemon_reload: yes

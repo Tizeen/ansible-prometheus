@@ -1,0 +1,2 @@
+version: 5.0.2
+download_url: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-{{ version }}.linux-x64.tar.gz 

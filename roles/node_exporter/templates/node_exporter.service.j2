@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Node Exporter service
+After=network.target auditd.service
+
+[Service]
+ExecStart=/opt/node_exporter-{{ version }}.linux-amd64/node_exporter
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
