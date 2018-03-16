@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Node Exporter service
+After=network.target auditd.service
+
+[Service]
+ExecStart=/opt/alertmanager-{{ version }}.linux-amd64/alertmanager --config.file=/opt/alertmanager-{{ version }}.linux-amd64/simple.yml
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

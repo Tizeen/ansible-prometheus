@@ -1,0 +1,3 @@
+version: 0.14.0
+download_url: "https://github.com/prometheus/alertmanager/releases/download/v{{ version }}/alertmanager-{{ version }}.linux-amd64.tar.gz"
+install_dir: "/opt"
