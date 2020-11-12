@@ -4,7 +4,7 @@ Use ansible deploy prometheus,node_exporter,grafana
 
 ## Run
 
-run once
+run one
 
 ```bash
 ansible-playbook -u <username> -b -K -i inventory/test/hosts.ini grafana.yml
